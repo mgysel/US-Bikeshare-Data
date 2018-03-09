@@ -1,0 +1,11 @@
+/* Omnipotent Styling */
+* {
+	font-family: 'Passion One', cursive;
+	text-decoration: none;
+} 
+
+.filter-month-dropdown, .filter-dow-dropdown {
+	display: none;
+}
+
+

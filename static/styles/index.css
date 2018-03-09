@@ -1,0 +1,62 @@
+/* Omnipotent Styling */
+* {
+	font-family: 'Rubik', sans-serif;
+	text-decoration: none;
+} 
+
+body {
+	margin: 0;
+}
+
+/* Header */
+.title {
+	height: 90px;
+	margin: 0;
+	padding-top: 20px;
+	background-color: #1153a0;
+	color: #fff;
+}
+
+/* Data */
+.data-section {
+	margin-left: 40px;
+	margin-bottom: 20px;
+}
+
+.subtitle {
+	margin-bottom: 20px;
+}
+
+/* Data Inquiry */
+.filter-month-dropdown, .filter-dow-dropdown {
+	display: none;
+}
+
+.dropdown {
+	margin-bottom: 15px;
+}
+
+.dropdown-answer {
+	width: 200px;
+	height: 30px;
+}
+
+.submit {
+	width: 150px;
+	height: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 15px;
+	border-radius: 5px;
+	
+}
+
+/* Data Summary */
+.question {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.answer {
+	margin-left: 20px;
+}

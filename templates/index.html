@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Home Page</title>
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.min.css') }}">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+	</head>
+	<body>
+		<h1 class='title text-center align-middle'>US Bike Share Data</h1>
+		<div class='data-section data-inquiry'>
+			<h2 class='subtitle text-center'>Data Inquiry</h2>
+			<form class='form-data-inquiry' action="{{ url_for('data') }}" method="post">
+				<div class='dropdown city-dropdown'>
+					<p class='question'>What city would you like to see data for?</p>
+					<select class='answer dropdown-answer' name='city'>
+						<option value="" selected disabled hidden>Choose a City</option>
+						<option value='chi'>Chicago</option>
+						<option value='ny'>New York City</option>
+						<option value='dc'>Washington DC</option>
+					</select>
+				</div>
+				<div class='dropdown filter-type-dropdown'>
+					<p class='question'>Would you like to filter the data by day, month, or none?</p>
+					<select class='answer dropdown-answer filter-type' name='filter-type'>
+						<option value="" selected disabled hidden>Choose a Filter</option>
+						<option class='filter-type-day' value='day'>Day</option>
+						<option value='month'>Month</option>
+						<option value='none'>None</option>
+					</select>
+				</div>
+				<div class='dropdown filter-month-dropdown'>
+					<p class='question'>Which month?</p>
+					<select class='answer dropdown-answer' name='month'>
+						<option value="" selected disabled hidden>Choose a Month</option>
+						<option value='1'>January</option>
+						<option value='2'>February</option>
+						<option value='3'>March</option>
+						<option value='4'>April</option>
+						<option value='5'>May</option>
+						<option value='6'>June</option>
+					</select>
+				</div>
+				<div class='dropdown filter-dow-dropdown'>
+					<p class='question'>Which day of the week?</p>
+					<select class='answer dropdown-answer' name='dow'>
+						<option value="" selected disabled hidden>Choose a Day of the Week</option>
+						<option value='Monday'>Monday</option>
+						<option value='Tuesday'>Tuesday</option>
+						<option value='Wednesday'>Wednesday</option>
+						<option value='Thursday'>Thursday</option>
+						<option value='Friday'>Friday</option>
+						<option value='Saturday'>Saturday</option>
+						<option value='Saturday'>Sunday</option>
+					</select>
+				</div>
+				<input class='submit center-block' type='submit'>
+			</form>
+		</div>
+		<div class='data-section data-summary'>
+			<h2 class='subtitle text-center'>Data Summary</h2>
+			<div class='questions'>
+				<div class='q-1'>
+					<p class='question'>What month has the most trips?</p>
+					<p class='answer'>{{max_start_month}}</p>
+				</div>
+				<div class='q-2'>
+					<p class='question'>What day of the week has the most trips?</p>
+					<p class='answer'>{{max_start_dow}}</p>
+				</div>
+				<div class='q-3'>
+					<p class='question'>What hour of the day has the most trips?</p>
+					<p class='answer'>{{max_start_hod}}</p>
+				</div>
+				<div class='q-4'>
+					<p class='question'>What is the total trip duration? Average trip duration?</p>
+					<p class='answer'>Total trip duration: {{total_trip_duration}}</p>
+					<p class='answer'>Average trip duration: {{avg_trip_duration}}</p>
+				</div>
+				<div class='q-5'>
+					<p class='question'>What is the most popular start station? End station?</p>
+					<p class='answer'>Most popular start station: {{max_start_station}}</p>
+					<p class='answer'>Most popular end station: {{max_end_station}}</p>
+				</div>
+				<div class='q-6'>
+					<p class='question'>What is the most popular trip?</p>
+					<p class='answer'>{{max_start_end_station[0]}} to {{max_start_end_station[1]}}</p>
+				</div>
+				<div class='q-7'>
+					<p class='question'>How many 'Customer' and 'Subscriber' users are there?</p>
+					<p class='answer'>'Customer' users: {{customers}}</p>
+					<p class='answer'>'Subscriber' users: {{subscribers}}</p>
+				</div>
+				<div class='q-8'>
+					<p class='question'>How many trips have been made by males and females?</p>
+					<p class='answer'>Male: {{males}} trips</p>
+					<p class='answer'>Female: {{females}} trips</p>
+				</div>
+				<div class='q-9'>
+					<p class='question'>What is the birth year of the oldest rider? Youngest rider? What are the most popular birth years of all riders?</p>
+					<p class='answer'>Oldest rider: {{by_oldest}}</p>
+					<p class='answer'>Youngest rider: {{by_youngest}}</p>
+					<p class='answer'>Most popular birth years: {{by_popular}}</p>
+				</div>
+			</div>
+		</div>
+		<script src="{{url_for('static', filename='scripts/jquery-3.2.1.min.js')}}"></script>
+		<script src="{{url_for('static', filename='scripts/bike-data.js')}}"></script>
+	</body>
+</html>
