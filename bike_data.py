@@ -49,11 +49,11 @@ all_data['Start HOD'] = (all_data['Start Time']).dt.hour
 
 #### Function for obtaining data based on inputs ####
 def data_inquiry(city, month=None, dow=None):
-'''
-Funtion that obtains data based on user inputs
-Inputs: City, and month or dow
-Outputs: Motivate bike data for those inputs
-'''
+	'''
+	Funtion that obtains data based on user inputs
+	Inputs: City, and month or dow
+	Outputs: Motivate bike data for those inputs
+	'''
 	data = all_data
 	if city:
 		data = all_data.loc[all_data['City Name'] == city]
