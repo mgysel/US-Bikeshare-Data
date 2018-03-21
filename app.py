@@ -51,14 +51,9 @@ def data():
     if request.method == 'POST':
         city = request.form.get('city')
         month = request.form.get('month')
-        city_name = city_to_name(city)
-        month_name = cal.month_name[int(month)]
         dow = request.form.get('dow')
         data = bd.data_inquiry(city=city, month=month, dow=dow)
         return render_template('data.html',
-            city=city_name,
-            month=month_name,
-            dow=dow,
             data=data
         )
 

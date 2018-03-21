@@ -48,7 +48,7 @@ all_data['Start HOD'] = (all_data['Start Time']).dt.hour
 ########## Data Inquiry ##########
 
 #### Function for obtaining data based on inputs ####
-def data_inquiry(city, month=None, dow=None):
+def data_inquiry(city, month='None', dow='None'):
 	'''
 	Funtion that obtains data based on user inputs
 	Inputs: City, and month or dow
@@ -57,9 +57,9 @@ def data_inquiry(city, month=None, dow=None):
 	data = all_data
 	if city:
 		data = all_data.loc[all_data['City Name'] == city]
-	if month:
+	if month != None:
 		data = data.loc[data['Start Month'] == int(month)]
-	elif dow:
+	elif dow != None:
 		data = data.loc[data['Start DOW'] == dow]
 	return data.to_json
 
